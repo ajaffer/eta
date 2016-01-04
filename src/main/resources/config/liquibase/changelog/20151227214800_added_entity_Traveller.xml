@@ -10,8 +10,8 @@
 
     <property name="autoIncrement" value="true" dbms="mysql,h2,postgresql,oracle"/>
 
-    <property name="floatType" value="float4" dbms="postgresql, h2"/>
-    <property name="floatType" value="float" dbms="mysql, oracle"/>
+    <property name="doubleType" value="double4" dbms="postgresql, h2"/>
+    <property name="doubleType" value="double" dbms="mysql, oracle"/>
 
     <!--
         Added the entity Traveller.
@@ -26,10 +26,10 @@
             <column name="email" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            <column name="lat" type="float">
+            <column name="lat" type="double">
                 <constraints nullable="true" />
             </column>
-            <column name="lng" type="float">
+            <column name="lng" type="double">
                 <constraints nullable="true" />
             </column>
         </createTable>

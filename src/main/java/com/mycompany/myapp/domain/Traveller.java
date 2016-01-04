@@ -3,6 +3,7 @@ package com.mycompany.myapp.domain;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.springframework.util.StringUtils;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -24,10 +25,10 @@ public class Traveller {
     private String email;
 
     @Column(name = "lat", nullable = true)
-    private float lat;
+    private double lat;
 
     @Column(name = "lng", nullable = true)
-    private float lng;
+    private double lng;
 
     @JsonIgnore
     @ManyToOne
@@ -49,19 +50,19 @@ public class Traveller {
         this.email = email;
     }
 
-    public float getLat() {
+    public double getLat() {
         return lat;
     }
 
-    public void setLat(float lat) {
+    public void setLat(double lat) {
         this.lat = lat;
     }
 
-    public float getLng() {
+    public double getLng() {
         return lng;
     }
 
-    public void setLng(float lng) {
+    public void setLng(double lng) {
         this.lng = lng;
     }
 
@@ -87,6 +88,9 @@ public class Traveller {
 
     @Override
     public int hashCode() {
+        if (StringUtils.isEmpty(email)) {
+            return 0;
+        }
         int result = email.hashCode();
         return result;
     }

@@ -12,6 +12,9 @@ import java.util.Optional;
  */
 public interface TravellerRepository extends JpaRepository<Traveller, Long>{
 
-    @Query("select traveller from Traveller traveller where traveller.email like :email")
+//    @Query("select traveller from Traveller traveller where traveller.email like ?1")
     Optional<Traveller> findOneByEmail(String email);
+
+    @Override
+    Traveller save(Traveller var1);
 }

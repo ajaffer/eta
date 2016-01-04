@@ -40,7 +40,7 @@ public class TravellerResource {
         return travellerRepository.findOneByEmail(updated.getEmail())
                 .map(existing -> {
                     existing.setLat(updated.getLat());
-                    existing.setLat(updated.getLng());
+                    existing.setLng(updated.getLng());
                     travellerRepository.save(existing);
                     return new ResponseEntity<>(HttpStatus.OK);
                 }).orElseGet(() -> {
